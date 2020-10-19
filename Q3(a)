@@ -1,0 +1,14 @@
+from xml.dom.minidom import parse
+def readXML():
+    domTree = parse("C:/Users/xiazeming/Downloads/blocklist.xml")
+    rootNode = domTree.documentElement
+    emItems = rootNode.getElementsByTagName("emItems")[0]
+    emItem = emItems.getElementsByTagName('emItem')
+    for i in emItem:
+        if (i.getAttribute('blockID'))[0] == "i":
+            print ('emItem blockID= "'+i.getAttribute('blockID')+'"', end = "")
+            print(' id= "'+i.getAttribute('id')+'"')
+        elif (i.getAttribute('blockID'))[0] == "g":
+            print ('emItem blockID= "'+i.getAttribute('blockID')+'"', end = "")
+            print(' id= "'+i.getAttribute('id')+'"')
+readXML()
